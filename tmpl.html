@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+    
+    <script id="todo" type="text/x-jquery-tmpl">
+      <li>
+        <input type="checkbox" value="${action}" {{if complete}}checked="checked"{{/if}}/> 
+        <span class="title">${action}</span>
+      </li>
+    </script>
+    
+    <script type="text/javascript">
+      $(function(){
+        
+        var todos = [
+          { action : "Buy milk", complete : false},
+          { action : "Brush teeth", complete : true},
+          { action : "Finish homework", complete : false},
+          { action : "Eat dinner", complete : false}
+        ];
+      
+        $.template( "todoTemplate", $("#todo").html());
+      
+        for( i=0 ; i<todos.length ; i=i+1 ){
+          $("#container").append( $.tmpl("todoTemplate", todos[i]) );
+        }
+      
+      });
+    </script>
+    
+  </head>
+  <body>
+
+    <ul id="container"></ul>
+    
+  </body>
+</html>

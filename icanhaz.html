@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript" src="ICanHaz.min.js"></script>
+    
+    <script id="todo" type="text/html">
+      <li>
+        <input type="checkbox" value="{{action}}" {{#complete}}checked="checked"{{/complete}}/> 
+        <span class="title">{{action}}</span>
+      </li>
+    </script>
+    
+    <script type="text/javascript">
+      $(function(){
+        
+        var todos = [
+          { action : "Buy milk", complete : false},
+          { action : "Brush teeth", complete : true},
+          { action : "Finish homework", complete : false},
+          { action : "Eat dinner", complete : false}
+        ];
+      
+        for( i=0 ; i<todos.length ; i=i+1 ){
+          $("#container").append(ich.todo(todos[i]));
+        }
+      
+      });
+    </script>
+    
+  </head>
+  <body>
+
+    <ul id="container"></ul>
+    
+  </body>
+</html>

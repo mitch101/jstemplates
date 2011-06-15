@@ -1,0 +1,54 @@
+<html>
+  <head></head>
+  <body>
+    
+    <ul>
+      <li><span class="title">[action]</span> <input type="checkbox" value="[action]" checked="checked"></li>
+      <li><span class="title">[action]</span> <input type="checkbox" value="[action]" checked="checked"></li>
+      <li><span class="title">[action]</span> <input type="checkbox" value="[action]" checked="checked"></li>
+      <li><span class="title">[action]</span> <input type="checkbox" value="[action]" checked="checked"></li>
+    </ul>
+  
+    <ul id="container"></ul>
+    
+    <script type="text/javascript">
+      var todos = [
+        { action : "Buy milk", complete : false},
+        { action : "Brush teeth", complete : true},
+        { action : "Finish homework", complete : false},
+        { action : "Eat dinner", complete : false}
+      ];
+  
+      for( i=0 ; i<todos.length ; i=i+1 ){
+        
+        var td_li = document.createElement('li');
+        
+        var td_checkbox = document.createElement('input');
+        td_checkbox.setAttribute('type', 'checkbox');
+        td_checkbox.setAttribute('value', todos[i].action);
+        if( todos[i].complete ){
+          td_checkbox.setAttribute('checked', 'checked');
+        }
+
+        var td_space = document.createTextNode(' ');
+
+        var td_span = document.createElement('span');
+        td_span.setAttribute('class', 'title');
+        td_span.innerHTML = todos[i].action;
+        
+        td_li.appendChild(td_checkbox);
+        td_li.appendChild(td_space);
+        td_li.appendChild(td_span);        
+
+        var container = document.getElementById('container');
+        container.appendChild(td_li);
+        
+      }
+      
+    </script>
+    
+    
+    
+    
+  </body>
+</html>

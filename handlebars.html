@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript" src="handlebars.1.0.0.beta.3.js"></script>
+    
+  </head>
+  <body>
+
+    <ul id="container"></ul>
+    
+    
+    <script id="todo-template" type="text/x-handlebars-template">
+      <li>
+        <input type="checkbox" value="{{action}}" {{#if complete}}checked="checked"{{/if}}/> 
+        <span class="title">{{action}}</span>
+      </li>
+    </script>
+    
+    <script type="text/javascript">
+      var todos = [
+        { action : "Buy milk", complete : false},
+        { action : "Brush teeth", complete : true},
+        { action : "Finish homework", complete : false},
+        { action : "Eat dinner", complete : false}
+      ];
+
+      var template = Handlebars.compile($("#todo-template").html());
+      
+      for( i=0 ; i<todos.length ; i=i+1 ){
+        $("#container").append(template(todos[i])); 
+      }
+      
+    </script>
+    
+    
+    
+    
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    
+  </head>
+  <body>
+  
+    <ul id="container"></ul>
+    
+    <script type="text/javascript">
+      var todos = [
+        { action : "Buy milk", complete : false},
+        { action : "Brush teeth", complete : true},
+        { action : "Finish homework", complete : false},
+        { action : "Eat dinner", complete : false}
+      ];
+  
+      for( i=0 ; i<todos.length ; i=i+1 ){
+  
+        var td_checkbox = $('<input type="checkbox"/>').val(todos[i].action);
+        if(todos[i].complete){
+          td_checkbox.attr('checked', 'checked');
+        }
+        
+        var td_span = $("<span/>").addClass("title").text(todos[i].action);
+
+        $("#container").append($("<li/>").append(td_checkbox).append(" ").append(td_span));
+        
+      }
+      
+    </script>
+    
+    
+    
+    
+  </body>
+</html>
